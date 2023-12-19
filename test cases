@@ -1,0 +1,55 @@
+
+validation : 
+
+1. email : @gmail.com
+2. password has 1number 1symbol 8digits and has be same as confirm password 
+4. phone number needs to be of 10 digits and cant be same as alternate phone 
+5. hobbies can't be all same 
+
+
+
+phone is not able to handle error s7
+
+pass is not checking for any password s8 
+
+hobbies is definetly not working s9 
+
+
+
+
+--readbyemail
+
+{
+    "email":"s1@gmail.com"
+}
+
+--insert
+
+{
+    "username":"testing1",
+    "email":"testing@gmail.com",
+    "password":"123",
+    "phone":9172761229
+}
+
+
+--delete
+
+{
+    "email":"s1@gmail.com"
+}
+
+
+
+
+--initiatePayment
+
+
+
+{
+
+    "amount":50
+
+}
+
+

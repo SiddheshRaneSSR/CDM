@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Extension Popup</title>
+  <style>
+    /* popup.css */
+body {
+    width: 250px;
+    height: 300px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+  
+}
+
+/* .popup-content {
+  padding: 10px;
+  text-align: center;
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+  </style>
+</head>
+<body>
+  <div class="popup-content">
+    <!-- Section for logged-in state (hidden by default) -->
+  <!-- <div id="loggedin-section" style="display: none;"> -->
+    <h1>CDN</h1>
+
+    <input type="file" name="uploadFile" id="uploadFile">
+    <button type="button">generate API</button>
+    <!-- Add any content specific to the logged-in state here -->
+  <!-- </div> -->
+
+  <!-- Section for logged-out state (visible by default) -->
+  <!-- <div id="loggedout-section">
+    <h1>Please log in to our website first.</h1>
+    <button id="login-button">Login</button>
+  </div> -->
+
+  <script src="popup.js"></script>
+  </div>
+</body>
+</html>

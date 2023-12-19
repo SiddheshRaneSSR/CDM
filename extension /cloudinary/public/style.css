@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #fileInput {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  #uploadButton {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  

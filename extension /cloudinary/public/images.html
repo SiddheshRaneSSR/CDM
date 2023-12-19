@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Display</title>
+</head>
+<body>
+  <h1>Images</h1>
+  <div id="imageList"></div>
+
+  <script>
+    async function fetchImages() {
+      try {
+        const response = await fetch('/images'); // Fetch images from the server
+        const data = await response.json();
+        const imageList = document.getElementById('imageList');
+
+        if (response.ok) {
+          // Display images in the image list
+          imageList.innerHTML = '';
+          data.forEach(image => {
+            // Build the Cloudinary URL with the resized dimensions (e.g., width: 300)
+            const resizedUrl = `${image.secure_url}?w=300`; // w for width
+            const imgElement = document.createElement('img');
+            imgElement.src = resizedUrl;
+            imgElement.alt = image.public_id;
+            imgElement.width=300;
+            imageList.appendChild(imgElement);
+
+            // Create a delete button for each image
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', () => deleteImage(image.public_id));
+            imageList.appendChild(deleteButton);
+          });
+        } else {
+          console.error('Error fetching images:', data.error);
+        }
+      } catch (error) {
+        console.error('Error fetching images:', error.message);
+      }
+    }
+
+    async function deleteImage(public_id) {
+      try {
+        const response = await fetch(`/delete/${public_id}`, { method: 'DELETE' });
+        const data = await response.json();
+
+        if (response.ok && data.result === 'ok') {
+          // Image deleted successfully, refresh the image list
+          fetchImages();
+        } else {
+          console.error('Error deleting image:', data.error);
+        }
+      } catch (error) {
+        console.error('Error deleting image:', error.message);
+      }
+    }
+
+    // Fetch and display images when the page loads
+    fetchImages();
+  </script>
+</body>
+</html>

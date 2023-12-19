@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cloud Data Management</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  <h1>Cloudinary Image Management</h1>
+  <form action="/uploadimage" method="post" id="myform" enctype="multipart/form-data">
+    <input type="file" name="image" >
+    <input type="submit" value="Upload">
+  </form>
+  
+  <button onclick="goToImagesPage()">Images</button>
+
+  <script>
+    function goToImagesPage() {
+    
+      window.location.href = './images.html'; // Redirect to the images page
+    }
+    
+    const fileInput = document.getElementById('myform');
+    fileInput.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // Handle the file selection without triggering unwanted actions
+    });
+  
+  </script>
+
+  <script src="../app.js"></script>
+</body>
+</html>

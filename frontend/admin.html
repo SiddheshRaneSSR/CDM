@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        // Function to load content based on button click
+        function loadContent(page) {
+            $("#content").load(page);
+        }
+
+        // Event handler for button clicks
+        $("report").click(function() {
+            loadContent("report.html");
+        });
+
+        $("users").click(function() {
+            loadContent("users.html");
+        });
+
+
+        $("server").click(function() {
+            loadContent("server.html");
+        });
+
+        // Add more buttons and corresponding event handlers as needed
+        });
+    </script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"><h1>CDM</h1></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse  justify-content-end mr-auto"  id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <button id='report' type="button" class="btn btn-outline-dark">Report</button>
+      <button id="users" type="button" class="btn btn-outline-dark">Users</button>
+      <button id="server" type="button" class="btn btn-outline-dark">server</button>  
+      <button id="#" type="button" class="btn btn-outline-dark">log Out</button>  
+    </div>
+  </div>
+</nav>
+
+<div id="content"></div>
+
+
+
+
+
+</body>
+</html>

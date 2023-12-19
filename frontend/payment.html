@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>payment</title>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</head>
+<body>
+    <script>
+
+        const key="rzp_test_VvrdLgyjn4zXVd";
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><h1>CDM</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link " href="/plans">Plans <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/features">Features</a>
+            <a class="nav-item nav-link" href="/signup">Signup</a>
+            
+          </div>
+        </div>
+      </nav>
+
+
+    <!-- Add a button to trigger the payment -->
+<button id="razorpay-payment-button">Pay Now</button>
+
+
+<script>
+    // Handle the button click event
+document.getElementById('razorpay-payment-button').addEventListener('click', function() {
+  // Fetch the necessary payment details from the server or set them manually
+  const orderId = '<%=order_id%>'; // The order ID received from the server
+  const amount = amount; // The payment amount in paisa (1 INR = 100 paisa)
+
+  // Configure the Razorpay options
+  const options = {
+    key: 'rzp_test_VvrdLgyjn4zXVd', // Replace with your actual Razorpay key ID
+    amount: amount,
+    currency: 'INR',
+    name: 'CDM',
+    description: 'Payment for Order',
+    image: '#', // URL of your company logo
+     order_id: "<%=orderID%>", // The order ID received from the server
+    handler: function(response) {
+      // Handle the payment success callback
+      console.log(response);
+    },
+    notes: {
+      address: 'Razorpay Corporate Office'
+    },
+    theme: {
+      color: '#F37254'
+    }
+  };
+
+  // Open the Razorpay payment form
+  const razorpayInstance = new Razorpay(options);
+  razorpayInstance.open();
+});
+
+</script>
+    
+</body>
+</html>
